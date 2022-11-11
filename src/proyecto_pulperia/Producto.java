@@ -4,30 +4,43 @@ import javax.swing.JOptionPane;
 
 public class Producto {
 
-    private int fechaCaducidad;
+    private String productos[][] = new String[10][6];
+    private String fechaCaducidad;
     private String nombre;
-    private int id;
-    private int stock;
+    private String id;
+    private int stock;//esta es para hacer alguna operacion
     private String categoria;
-    private int precio;
+    private int precio;//esta es para hacer alguna operacion
+    private String precioMostrar;//esta variable es solo para mostrar
+    private String stockMostrar;//esta variable es solo para mostrar
 
     public Producto() {
     }
 
-    public Producto(int fechaCaducidad, String nombre, int id, int stock, String categoria, int precio) {
+    public Producto(String fechaCaducidad, String nombre, String id, int stock, String categoria, int precio, String precioMostrar, String stockMostrar) {
         this.fechaCaducidad = fechaCaducidad;
         this.nombre = nombre;
         this.id = id;
         this.stock = stock;
         this.categoria = categoria;
         this.precio = precio;
+        this.precioMostrar = precioMostrar;
+        this.stockMostrar = stockMostrar;
     }
 
-    public int getFechaCaducidad() {
+    public String[][] getProductos() {
+        return productos;
+    }
+
+    public void setProductos(String[][] productos) {
+        this.productos = productos;
+    }
+
+    public String getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(int fechaCaducidad) {
+    public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 
@@ -39,11 +52,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,19 +84,51 @@ public class Producto {
         this.precio = precio;
     }
 
-    public void recogerDatosProducto() {
-
-        precio = Integer.parseInt(JOptionPane.showInputDialog("Digite el precio del producto"));
-        nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
-        id = Integer.parseInt(JOptionPane.showInputDialog("Digite el id del producto"));
-        stock = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda"));
-        fechaCaducidad = Integer.parseInt(JOptionPane.showInputDialog("Digite la fecha de caducidad del producto"));
-        categoria = JOptionPane.showInputDialog("Digite la actegoria del producto");
-
+    public String getPrecioMostrar() {
+        return precioMostrar;
     }
 
-    
-    
+    public void setPrecioMostrar(String precioMostrar) {
+        this.precioMostrar = precioMostrar;
+    }
+
+    public String getStockMostrar() {
+        return stockMostrar;
+    }
+
+    public void setStockMostrar(String stockMostrar) {
+        this.stockMostrar = stockMostrar;
+    }
+public void recogerDatos() {
+
+        id = JOptionPane.showInputDialog("Digite el id del producto");
+        insertarEnMatriz(id);
+        nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
+         insertarEnMatriz(nombre);
+        precioMostrar = JOptionPane.showInputDialog("Digite el precio del producto");
+        precio = Integer.parseInt(precioMostrar);
+         insertarEnMatriz(precioMostrar);
+        stockMostrar = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
+        stock = Integer.parseInt(stockMostrar);
+        insertarEnMatriz(stockMostrar);
+        categoria = JOptionPane.showInputDialog("Digite la actegoria del producto");
+        insertarEnMatriz(categoria);
+        fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
+         insertarEnMatriz(fechaCaducidad);
+    }
+
+    public void insertarEnMatriz(String dato) {
+        //llenamos la matriz
+        for (int i = 0; i < 10; i++) {//este for es para llenar las filas
+            for (int j = 0; j < 6; j++) {//este for es para llenar las columnas
+                int salario = Integer.parseInt(JOptionPane.showInputDialog("Digite un salario"));
+                productos[i][j] = dato;
+ 
+            }
+            
+        }
+    }
+
     public void mostrarDatosProducto() {
 
         JOptionPane.showMessageDialog(null,
@@ -96,13 +141,8 @@ public class Producto {
 
     }
 
-
-
+    
+    
+    
+    
 }
-
-
-
-
-
-
-
