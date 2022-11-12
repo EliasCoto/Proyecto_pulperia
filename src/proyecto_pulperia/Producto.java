@@ -4,15 +4,17 @@ import javax.swing.JOptionPane;
 
 public class Producto {
 
-    private String productos[][] = new String[2][6];
+    private String productos[][] = new String[2][6]; //se usa una matriz para guardar los productos
+
+    //creacion de atributos
     private String fechaCaducidad;
     private String nombre;
     private String id;
     private int stock; //esta es para hacer alguna operacion
+    private String stockMostrar; //esta variable es solo para mostrar
     private String categoria;
     private int precio; //esta es para hacer alguna operacion
     private String precioMostrar; //esta variable es solo para mostrar
-    private String stockMostrar; //esta variable es solo para mostrar
 
     public Producto() {
     }
@@ -100,11 +102,13 @@ public class Producto {
         this.stockMostrar = stockMostrar;
     }
 
-    public void insertarEnMatriz() {
+    public void insertarEnMatriz() {  //Metodo para recoger  y llenar datos en la matriz
+
         //llenamos la matriz
         for (int i = 0; i < 2; i++) {//este for es para llenar las filas
             for (int j = 0; j < 6; j++) {//este for es para llenar las columnas
 
+                //estos if son para ir saltando de columna en columna
                 if (j == 0) {
                     id = JOptionPane.showInputDialog("Digite el id del producto");
                     productos[i][j] = id;
@@ -132,9 +136,11 @@ public class Producto {
         }
     }
 
+    //metodo es para mostrar la matriz con todos los productos
     public void mostrarDatosProducto() {
-        for (int n = 0; n < 2; n++) {
-            for (int p = 0; p < 6; p++) {
+
+        for (int n = 0; n < 2; n++) {//filas
+            for (int p = 0; p < 6; p++) {//columnas
 
                 System.out.print("\t" + productos[n][p]);
 
@@ -143,9 +149,9 @@ public class Producto {
         }
     }
 
-    //este metodo retorna un "true" si el producto es para mayores de edad.
-    //sino un "false" que seria un producto al cual no importa la edad del "Cliente".
-    public boolean validarCategoriaProducto(String id) {
+//este metodo retorna un "true" si el producto es para mayores de edad.
+    //sino un retorna un "false" que signifca que es un producto al cual no importa la edad del "Cliente".
+    public boolean validarCategoriaProducto(String id) {//este id es el id del producto que queremos consultar
         boolean veri = false;
         for (int n = 0; n < 2; n++) {
             for (int p = 0; p < 1; p++) {
@@ -164,6 +170,3 @@ public class Producto {
     }
 
 }
-
-
-
