@@ -4,15 +4,15 @@ import javax.swing.JOptionPane;
 
 public class Producto {
 
-    private String productos[][] = new String[10][6];
+    private String productos[][] = new String[2][6];
     private String fechaCaducidad;
     private String nombre;
     private String id;
-    private int stock;//esta es para hacer alguna operacion
+    private int stock; //esta es para hacer alguna operacion
     private String categoria;
-    private int precio;//esta es para hacer alguna operacion
-    private String precioMostrar;//esta variable es solo para mostrar
-    private String stockMostrar;//esta variable es solo para mostrar
+    private int precio; //esta es para hacer alguna operacion
+    private String precioMostrar; //esta variable es solo para mostrar
+    private String stockMostrar; //esta variable es solo para mostrar
 
     public Producto() {
     }
@@ -99,50 +99,71 @@ public class Producto {
     public void setStockMostrar(String stockMostrar) {
         this.stockMostrar = stockMostrar;
     }
-public void recogerDatos() {
 
-        id = JOptionPane.showInputDialog("Digite el id del producto");
-        insertarEnMatriz(id);
-        nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
-         insertarEnMatriz(nombre);
-        precioMostrar = JOptionPane.showInputDialog("Digite el precio del producto");
-        precio = Integer.parseInt(precioMostrar);
-         insertarEnMatriz(precioMostrar);
-        stockMostrar = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
-        stock = Integer.parseInt(stockMostrar);
-        insertarEnMatriz(stockMostrar);
-        categoria = JOptionPane.showInputDialog("Digite la actegoria del producto");
-        insertarEnMatriz(categoria);
-        fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
-         insertarEnMatriz(fechaCaducidad);
-    }
-
-    public void insertarEnMatriz(String dato) {
+    public void insertarEnMatriz() {
         //llenamos la matriz
-        for (int i = 0; i < 10; i++) {//este for es para llenar las filas
+        for (int i = 0; i < 2; i++) {//este for es para llenar las filas
             for (int j = 0; j < 6; j++) {//este for es para llenar las columnas
-                int salario = Integer.parseInt(JOptionPane.showInputDialog("Digite un salario"));
-                productos[i][j] = dato;
- 
+
+                if (j == 0) {
+                    id = JOptionPane.showInputDialog("Digite el id del producto");
+                    productos[i][j] = id;
+                } else if (j == 1) {
+                    nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
+                    productos[i][j] = nombre;
+                } else if (j == 2) {
+                    precioMostrar = JOptionPane.showInputDialog("Digite el precio del producto");
+                    precio = Integer.parseInt(precioMostrar);
+                    productos[i][j] = precioMostrar;
+                } else if (j == 3) {
+                    stockMostrar = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
+                    stock = Integer.parseInt(stockMostrar);
+                    productos[i][j] = stockMostrar;
+                } else if (j == 4) {
+                    categoria = JOptionPane.showInputDialog("Digite la categoria del producto");
+                    productos[i][j] = categoria;
+                } else if (j == 5) {
+                    fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
+                    productos[i][j] = fechaCaducidad;
+                }
+
             }
-            
+
         }
     }
 
     public void mostrarDatosProducto() {
+        for (int n = 0; n < 2; n++) {
+            for (int p = 0; p < 6; p++) {
 
-        JOptionPane.showMessageDialog(null,
-                "El precio del producto es : " + precio
-                + "\n El nombre del producto es : " + nombre
-                + "\n El id del producto es : " + id
-                + "\n La cantidad de stocks es : " + stock
-                + "\n Su fecha de caducidad es : " + fechaCaducidad
-                + "\n La categoria del producto es  : " + categoria);
+                System.out.print("\t" + productos[n][p]);
 
+            }
+            System.out.println("");
+        }
     }
 
-    
-    
-    
-    
+    //este metodo retorna un "true" si el producto es para mayores de edad.
+    //sino un "false" que seria un producto al cual no importa la edad del "Cliente".
+    public boolean validarCategoriaProducto(String id) {
+        boolean veri = false;
+        for (int n = 0; n < 2; n++) {
+            for (int p = 0; p < 1; p++) {
+
+                if (productos[n][p].equals(id)) {
+                    if (productos[n][4].equals("licores") || productos[n][4].equals("Licores")) {
+                        veri = true;
+                    }
+                }
+
+            }
+
+        }
+
+        return veri;
+    }
+
 }
+
+
+
