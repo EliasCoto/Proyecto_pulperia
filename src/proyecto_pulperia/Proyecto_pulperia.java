@@ -1,5 +1,7 @@
 package proyecto_pulperia;
 
+import Productos.Producto;
+
 public class Proyecto_pulperia {
 
     public static void main(String[] args) {
