@@ -6,10 +6,12 @@ public class Proyecto_pulperia {
         //menu
 
         Producto p = new Producto();
-   
+      
+        
        p.insertarEnMatriz();
+       
        p.mostrarDatosProducto();
-        System.out.println(p.validarCategoriaProducto("2"));
+       System.out.println(p.validarCategoriaProducto("2"));
        
       
     }
