@@ -8,27 +8,28 @@ import Productos.Producto;
 
 
 public class Factura {
-    String  facturas[] = new String[2]; //vector de facturas
-    
+  
     private int id;
-    private Cliente cliente;
+  //  private Cliente cliente;
     private Producto producto;
     private double precio;
     private String metodoPago;
     private String fecha;
-    private Empleado empleado;
+    private double total;
+  //  private Empleado empleado;
 
     public Factura() {
     }
 
-    public Factura(int id, Cliente cliente, Producto producto, double precio, String metodoPago, String fecha, Empleado empleado) {
+    
+    
+    public Factura(int id, Producto producto, double precio, String metodoPago, String fecha, double total) {
         this.id = id;
-        this.cliente = cliente;
         this.producto = producto;
         this.precio = precio;
         this.metodoPago = metodoPago;
         this.fecha = fecha;
-        this.empleado = empleado;
+        this.total = total;
     }
 
     public int getId() {
@@ -37,14 +38,6 @@ public class Factura {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     public Producto getProducto() {
@@ -79,26 +72,22 @@ public class Factura {
         this.fecha = fecha;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public double getTotal() {
+        return total;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setTotal(double total) {
+        this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "Factura{" + "id=" + id + ", producto=" + producto + ", precio=" + precio + ", metodoPago=" + metodoPago + ", fecha=" + fecha + ", total=" + total + '}';
+    }
+
+   
+  
+
 
   
-    
-    
-    public void factura(){
-        for (int i = 0; i < facturas.length; i++) {
-            
-        }
-        
-        
-    }
-    
-    
-    
-    
 }

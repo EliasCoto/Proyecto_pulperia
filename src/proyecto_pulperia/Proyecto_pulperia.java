@@ -1,5 +1,6 @@
 package proyecto_pulperia;
 
+import Factura.Facturas_metodos;
 import Productos.Producto;
 
 public class Proyecto_pulperia {
@@ -13,9 +14,12 @@ public class Proyecto_pulperia {
        p.insertarEnMatriz();
        
        p.mostrarDatosProducto();
-       System.out.println(p.validarCategoriaProducto("2"));
        
-      
+       
+       Facturas_metodos f = new Facturas_metodos();
+       
+      f.factura();
+      f.mostrarFacturas();
     }
 
 }
