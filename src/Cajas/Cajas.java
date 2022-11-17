@@ -9,7 +9,7 @@ public class Cajas {
     
    
     
-//    private Cliente cliente;
+// private Cliente cliente;
     private Producto producto;
     private String metPago;
     private int total;

@@ -85,7 +85,13 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "productos=" + productos + ", fechaCaducidad=" + fechaCaducidad + ", nombre=" + nombre + ", id=" + id + ", stock=" + stock + ", categoria=" + categoria + ", precio=" + precio + '}';
+        return "------Producto------ " + "\n"
+                + "ID: " + id + "\n"
+                + "Nombre: " + nombre + "\n"
+                + "Precio: " + precio + "\n"
+                + "Stock: " + stock + "\n"
+                + "Categoria: " + categoria + "\n"
+                + "Expira: " + fechaCaducidad + "\n";
     }
 
     public void insertarEnMatriz() {  //Metodo para recoger  y llenar datos en la matriz
@@ -95,6 +101,7 @@ public class Producto {
             for (int j = 0; j < 6; j++) {//este for es para llenar las columnas
                 if (i == 0) {
 
+                    //esto es para mostrar en pantalla en forma de tabla
                     productos[0][0] = "ID";
 
                     productos[0][1] = "Producto";
@@ -109,7 +116,7 @@ public class Producto {
 
                 } else {
                     //estos if son para ir saltando de columna en columna
-                    if (j == 0) {
+                     if (j == 0) {
                         id = JOptionPane.showInputDialog("Digite el id del producto");
                         productos[i][j] = id;
                     } else if (j == 1) {
@@ -141,21 +148,23 @@ public class Producto {
         for (int n = 0; n < 2; n++) {//filas
             for (int p = 0; p < 6; p++) {//columnas
 
-                System.out.print("\t" + productos[n][p]);
+              System.out.print("\t" + productos[n][p]);
 
             }
             System.out.println("");
         }
     }
 
+   
+
 //este metodo retorna un "true" si el producto es para mayores de edad.
     //sino un retorna un "false" que signifca que es un producto al cual no importa la edad del "Cliente".
-    public boolean validarCategoriaProducto(String id) {//este id es el id del producto que queremos consultar
+    public boolean validarCategoriaProducto(String nom) {//este id es el id del producto que queremos consultar
         boolean veri = false;
         for (int n = 0; n < 2; n++) {
             for (int p = 0; p < 1; p++) {
 
-                if (productos[n][p].equals(id)) {
+                if (productos[n][1].equals(nom)) {
                     if (productos[n][4].equals("licores") || productos[n][4].equals("Licores")) {
                         veri = true;
                     }
@@ -167,15 +176,16 @@ public class Producto {
 
         return veri;
     }
+//este metodo es para traer unicamente el precio del producto "este metodo funciona pero por el momento esta en prueba"
 
-    public int traerPrecioProductoEspecifico(String nombre) {//este nombre es el nombre que queremos buscar en la matriz
+    public int traerPrecioProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
 
         int precioProducto = 0;
-        for (int i = 0; i < 2; i++) {//filas
-            for (int j = 0; j < 0; j++) {//columnas
-                if (productos[i][j] == id) {
+        for (int n = 1; n < 2; n++) {// Recorre las filas de nuestro metodo
+            for (int p = 1; p < 2; p++) {//Recorre las columnas de nuestro metodo
+                if (productos[n][1].equals(nom)) {
 
-                    precioProducto = Integer.parseInt(productos[i][2]);
+                    precioProducto = Integer.parseInt(productos[n][2]);
                 }
             }
         }
@@ -183,6 +193,7 @@ public class Producto {
         return precioProducto;
     }
 
+    //este metodo trae toda la info del producto 
     public Producto traerProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
         Producto producto;
         String fechaCaducidad = "";
@@ -192,15 +203,16 @@ public class Producto {
         String categoria = "";
         String precio = "";
         int precioProducto = 0;
-        for (int i = 0; i < 2; i++) {//filas
-            for (int j = 0; j < 0; j++) {//columnas
-                if (productos[i][j].equals(nom)) {//si el ecuentra el producto lo retorna
-                    id = productos[i][0];
-                    nombre = productos[i][1];
-                    precio = productos[i][2];
-                    stock = productos[i][3];
-                    categoria = productos[i][4];
-                    fechaCaducidad = productos[i][5];
+
+        for (int n = 1; n < 2; n++) {// Recorre las filas de nuestro metodo
+            for (int p = 1; p < 2; p++) {//Recorre las columnas de nuestro metodo
+                if (productos[n][1].equals(nom)) {//si el ecuentra el producto lo retorna
+                    id = productos[n][0];
+                    nombre = productos[n][1];
+                    precio = productos[n][2];
+                    stock = productos[n][3];
+                    categoria = productos[n][4];
+                    fechaCaducidad = productos[n][5];
                 }
             }
         }
@@ -208,7 +220,8 @@ public class Producto {
         return producto;
     }
 
-    public boolean productoExist(String nombre) {//Este metodo busca si existe un producto especifico en la tienda
+    //Este metodo busca si existe un producto especifico en la tienda
+    public boolean productoExist(String nombre) {
         boolean exist = false;
 
         for (int n = 1; n < 2; n++) {// Recorre las filas de nuestro metodo
