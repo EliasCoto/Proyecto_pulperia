@@ -14,12 +14,14 @@ public class Proyecto_pulperia {
        p.insertarEnMatriz();
        
        p.mostrarDatosProducto();
+        System.out.println(p.productoExist("Banano"));
+    
        
        
-       Facturas_metodos f = new Facturas_metodos();
+      // Facturas_metodos f = new Facturas_metodos();
        
-      f.factura();
-      f.mostrarFacturas();
+      //f.factura();
+     // f.mostrarFacturas();
     }
 
 }

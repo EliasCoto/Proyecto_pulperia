@@ -11,9 +11,9 @@ public class Producto {
     private String fechaCaducidad;
     private String nombre;
     private String id;
-    private String stock; 
+    private String stock;
     private String categoria;
-    private String precio; 
+    private String precio;
 
     public Producto() {
     }
@@ -88,10 +88,6 @@ public class Producto {
         return "Producto{" + "productos=" + productos + ", fechaCaducidad=" + fechaCaducidad + ", nombre=" + nombre + ", id=" + id + ", stock=" + stock + ", categoria=" + categoria + ", precio=" + precio + '}';
     }
 
-    
-
- 
-
     public void insertarEnMatriz() {  //Metodo para recoger  y llenar datos en la matriz
 
         //llenamos la matriz
@@ -118,16 +114,16 @@ public class Producto {
                         productos[i][j] = id;
                     } else if (j == 1) {
                         nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
-                        productos[i][j] = nombre + "\t";
+                        productos[i][j] = nombre;
                     } else if (j == 2) {
-                        precio= JOptionPane.showInputDialog("Digite el precio del producto");     
+                        precio = JOptionPane.showInputDialog("Digite el precio del producto");
                         productos[i][j] = precio;
                     } else if (j == 3) {
-                        stock = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda"); 
+                        stock = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
                         productos[i][j] = stock;
                     } else if (j == 4) {
                         categoria = JOptionPane.showInputDialog("Digite la categoria del producto");
-                        productos[i][j] = categoria + "   ";
+                        productos[i][j] = categoria;
                     } else if (j == 5) {
                         fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
                         productos[i][j] = fechaCaducidad;
@@ -173,45 +169,59 @@ public class Producto {
     }
 
     public int traerPrecioProductoEspecifico(String nombre) {//este nombre es el nombre que queremos buscar en la matriz
-  
-      
+
         int precioProducto = 0;
         for (int i = 0; i < 2; i++) {//filas
             for (int j = 0; j < 0; j++) {//columnas
                 if (productos[i][j] == id) {
-                    
+
                     precioProducto = Integer.parseInt(productos[i][2]);
                 }
             }
         }
-      
+
         return precioProducto;
     }
 
-    
-    
-     public Producto traerProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
-     Producto producto;
-    String fechaCaducidad="";
-    String nombre="";
-    String id="";
-    String stock=""; 
-     String categoria="";
-     String precio=""; 
+    public Producto traerProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
+        Producto producto;
+        String fechaCaducidad = "";
+        String nombre = "";
+        String id = "";
+        String stock = "";
+        String categoria = "";
+        String precio = "";
         int precioProducto = 0;
         for (int i = 0; i < 2; i++) {//filas
             for (int j = 0; j < 0; j++) {//columnas
-                if (productos[i][j].equals(nom) ) {//si el ecuentra el producto lo retorna
-                     id=productos[i][0];
-                     nombre=productos[i][1];
-                     precio=productos[i][2];
-                      stock =productos[i][3];
-                      categoria=productos[i][4];
-                     fechaCaducidad=productos[i][5];
+                if (productos[i][j].equals(nom)) {//si el ecuentra el producto lo retorna
+                    id = productos[i][0];
+                    nombre = productos[i][1];
+                    precio = productos[i][2];
+                    stock = productos[i][3];
+                    categoria = productos[i][4];
+                    fechaCaducidad = productos[i][5];
                 }
             }
         }
-       producto = new Producto(fechaCaducidad,nombre,id,stock,categoria,precio);
+        producto = new Producto(fechaCaducidad, nombre, id, stock, categoria, precio);
         return producto;
+    }
+
+    public boolean productoExist(String nombre) {//Este metodo busca si existe un producto especifico en la tienda
+        boolean exist = false;
+
+        for (int n = 1; n < 2; n++) {// Recorre las filas de nuestro metodo
+            for (int p = 1; p < 2; p++) {//Recorre las columnas de nuestro metodo
+
+                if (productos[n][1].equals(nombre)) {
+                    exist = true;
+
+                }
+            }
+
+        }
+
+        return exist;
     }
 }
