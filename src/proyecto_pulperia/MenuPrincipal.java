@@ -32,7 +32,7 @@ public class MenuPrincipal {
         System.out.println(p.validarCategoriaProducto("banano"));
     
        
-       
+       //---------Esto son las facturas  " funciona pero por el momento esta en prueba" 
       // Facturas_metodos f = new Facturas_metodos();
        
       //f.factura();
