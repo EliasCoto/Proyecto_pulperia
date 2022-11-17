@@ -1,6 +1,6 @@
 package Productos;
 
-import proyecto_pulperia.*;
+
 import javax.swing.JOptionPane;
 
 public class Producto {
