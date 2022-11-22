@@ -1,28 +1,23 @@
-
 package Factura;
 
 import Personas.Cliente;
 import Personas.Empleado;
 import Productos.Producto;
 
-
-
 public class Factura {
-  
+
     private int id;
-  //  private Cliente cliente;
+    //  private Cliente cliente;
     private Producto producto;
     private double precio;
     private String metodoPago;
     private String fecha;
     private double total;
-  //  private Empleado empleado;
+    //  private Empleado empleado;
 
     public Factura() {
     }
 
-    
-    
     public Factura(int id, Producto producto, double precio, String metodoPago, String fecha, double total) {
         this.id = id;
         this.producto = producto;
@@ -85,9 +80,4 @@ public class Factura {
         return "Factura{" + "id=" + id + ", producto=" + producto + ", precio=" + precio + ", metodoPago=" + metodoPago + ", fecha=" + fecha + ", total=" + total + '}';
     }
 
-   
-  
-
-
-  
 }

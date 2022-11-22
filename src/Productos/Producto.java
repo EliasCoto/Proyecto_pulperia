@@ -1,6 +1,5 @@
 package Productos;
 
-
 import javax.swing.JOptionPane;
 
 public class Producto {
@@ -85,61 +84,25 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "------Producto------ " + "\n"
-                + "ID: " + id + "\n"
-                + "Nombre: " + nombre + "\n"
-                + "Precio: " + precio + "\n"
-                + "Stock: " + stock + "\n"
-                + "Categoria: " + categoria + "\n"
-                + "Expira: " + fechaCaducidad + "\n";
+        return "\n\n------Producto------ " + "\n\n"
+                + "Nombre: " + nombre + "\t"
+                + "Precio: " + precio + "\n";
     }
 
-    public void insertarEnMatriz() {  //Metodo para recoger  y llenar datos en la matriz
+    public void recogerDatos() {  //Recoger los datos del producto
 
-        //llenamos la matriz
-        for (int i = 0; i < 2; i++) {//este for es para llenar las filas
-            for (int j = 0; j < 6; j++) {//este for es para llenar las columnas
-                if (i == 0) {
+        id = JOptionPane.showInputDialog("Digite el id del producto");
 
-                    //esto es para mostrar en pantalla en forma de tabla
-                    productos[0][0] = "ID";
+        nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
 
-                    productos[0][1] = "Producto";
+        precio = JOptionPane.showInputDialog("Digite el precio del producto");
 
-                    productos[0][2] = "Precio";
+        stock = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
 
-                    productos[0][3] = "Stock";
+        categoria = JOptionPane.showInputDialog("Digite la categoria del producto");
 
-                    productos[0][4] = "Categoria";
+        fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
 
-                    productos[0][5] = "Expira";
-
-                } else {
-                    //estos if son para ir saltando de columna en columna
-                     if (j == 0) {
-                        id = JOptionPane.showInputDialog("Digite el id del producto");
-                        productos[i][j] = id;
-                    } else if (j == 1) {
-                        nombre = JOptionPane.showInputDialog("Digite el nombre del producto");
-                        productos[i][j] = nombre;
-                    } else if (j == 2) {
-                        precio = JOptionPane.showInputDialog("Digite el precio del producto");
-                        productos[i][j] = precio;
-                    } else if (j == 3) {
-                        stock = JOptionPane.showInputDialog("Digite la cantidad de productos que hay en la tienda");
-                        productos[i][j] = stock;
-                    } else if (j == 4) {
-                        categoria = JOptionPane.showInputDialog("Digite la categoria del producto");
-                        productos[i][j] = categoria;
-                    } else if (j == 5) {
-                        fechaCaducidad = JOptionPane.showInputDialog("Digite la fecha de caducidad del producto");
-                        productos[i][j] = fechaCaducidad;
-                    }
-                }
-
-            }
-
-        }
     }
 
     //metodo es para mostrar la matriz con todos los productos
@@ -148,17 +111,15 @@ public class Producto {
         for (int n = 0; n < 2; n++) {//filas
             for (int p = 0; p < 6; p++) {//columnas
 
-              System.out.print("\t" + productos[n][p]);
+                System.out.print("\t" + productos[n][p]);
 
             }
             System.out.println("");
         }
     }
 
-   
-
 //este metodo retorna un "true" si el producto es para mayores de edad.
-    //sino un retorna un "false" que signifca que es un producto al cual no importa la edad del "Cliente".
+    //sino un retorna un "false" que signifca que es un producto al cual no le importa la edad del "Cliente".
     public boolean validarCategoriaProducto(String nom) {//este id es el id del producto que queremos consultar
         boolean veri = false;
         for (int n = 0; n < 2; n++) {
@@ -178,7 +139,7 @@ public class Producto {
     }
 //este metodo es para traer unicamente el precio del producto "este metodo funciona pero por el momento esta en prueba"
 
-    public int traerPrecioProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
+    public int traerPrecioProductoEspecifico(String nom) {//este nombre es el nombre del producto que queremos buscar en la matriz
 
         int precioProducto = 0;
         for (int n = 1; n < 2; n++) {// Recorre las filas de nuestro metodo
@@ -194,7 +155,7 @@ public class Producto {
     }
 
     //este metodo trae toda la info del producto 
-    public Producto traerProductoEspecifico(String nom) {//este nombre es el nombre que queremos buscar en la matriz
+    public Producto traerProductoEspecifico(String nom) {//este nombre es el nombre del producto que queremos buscar en la matriz
         Producto producto;
         String fechaCaducidad = "";
         String nombre = "";

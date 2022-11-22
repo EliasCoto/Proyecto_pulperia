@@ -7,9 +7,9 @@ public class Facturas_metodos {
 
     Producto p = new Producto();
     Factura facturas[] = new Factura[1];//aqui hacemos el arreglo de objetos
+
     public void factura() {
         //aqui unicamente generamos facturas
-    
 
         //agregar el cliente
         //hasta que karla lo termine
@@ -46,21 +46,18 @@ public class Facturas_metodos {
             double totalFactura = 0;
             totalFactura = totalFactura + precioProductoComprado;
             String fecha = JOptionPane.showInputDialog("Digite la fecha de la factura");
-            
-          
-            facturas[i] = new Factura(id,   p.traerProductoEspecifico(nombreProductoComprado), precioProductoComprado, metodoPago, fecha,totalFactura);
+
+            facturas[i] = new Factura(id, p.traerProductoEspecifico(nombreProductoComprado), precioProductoComprado, metodoPago, fecha, totalFactura);
         }
 
         //luego envio el total de cada factura a cajas y en cajas sumo todas las facturas
     }
 
-    
-    public void mostrarFacturas(){
+    public void mostrarFacturas() {
         for (int i = 0; i < facturas.length; i++) {
             System.out.println(facturas[i]);
         }
-        
+
     }
-    
-    
+
 }
