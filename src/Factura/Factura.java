@@ -1,15 +1,10 @@
 package Factura;
 
-import Personas.Cliente;
-import Personas.Empleado;
-import Productos.Producto;
 
 public class Factura {
 
     private int id;
     //  private Cliente cliente;
-    private Producto producto;
-    private double precio;
     private String metodoPago;
     private String fecha;
     private double total;
@@ -18,10 +13,8 @@ public class Factura {
     public Factura() {
     }
 
-    public Factura(int id, Producto producto, double precio, String metodoPago, String fecha, double total) {
+    public Factura(int id, String metodoPago, String fecha, double total) {
         this.id = id;
-        this.producto = producto;
-        this.precio = precio;
         this.metodoPago = metodoPago;
         this.fecha = fecha;
         this.total = total;
@@ -33,22 +26,6 @@ public class Factura {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public String getMetodoPago() {
@@ -77,7 +54,11 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Factura{" + "id=" + id + ", producto=" + producto + ", precio=" + precio + ", metodoPago=" + metodoPago + ", fecha=" + fecha + ", total=" + total + '}';
+        return "\n----------Factura-----------" + "\n"
+                + "ID: " + id + "\t"
+                + "Metodo de pago: " + metodoPago + "\t"
+                + "Fecha: " + fecha + "\t"
+                + "Total: " + total + "\n";
     }
-
+   
 }
