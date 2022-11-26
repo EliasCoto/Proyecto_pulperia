@@ -80,14 +80,7 @@ public class Cliente {
 
     }
 
-    // Recorre la lista de clientes y muestra cada uno.
-    public void mostrarClientes() {
-        for (int i = 0; i < 2; i += 1) {
-            System.out.println("");
-            System.out.println("Cliente: " + i);
-            cliente[i].mostrarDatos();
-        }
-    }
+  
     // Método encargado de solicitarle al usuario los datos correspondiente de cada cliente.
 
     public void tomarDatosCliente() {
@@ -108,11 +101,5 @@ public class Cliente {
         JOptionPane.showMessageDialog(null, "Cliente agregado de manera correcta!");
     }
 
-    public void llenarMatriz() {
-        for (int i = 0; i < 2; i += 1) {
-            Cliente cliente1 = new Cliente();
-            cliente1.tomarDatosCliente();
-            cliente[i] = cliente1;
-        }
-    }
+  
 }

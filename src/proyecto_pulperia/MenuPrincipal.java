@@ -1,6 +1,8 @@
 package proyecto_pulperia;
 
 import Factura.Factura;
+import Personas.Cliente;
+import Personas.Empleado;
 import Productos.Producto;
 import Proveedor.Proveedor;
 import javax.swing.JOptionPane;
@@ -11,16 +13,20 @@ public class MenuPrincipal {
 
     //matriz
     static String productos[][] = new String[20][6]; //Se usa una matriz para guardar los precios
+
     //Arreglo de objetos
     static Factura facturas[] = new Factura[2];
     static Proveedor proveedores[] = new Proveedor[5];
+    static Cliente cliente[] = new Cliente[2]; // Arreglo que se encarga de guardar los clientes.
+    static Empleado empleados[] = new Empleado[2]; // Arreglo que se encarga de guardar los empleados.
 
     //inicializamos las clases
     static Producto p = new Producto();
     static Factura f = new Factura();
-    static Proveedor pr = new Proveedor(); 
-      
-    
+    static Proveedor pr = new Proveedor();
+    static Cliente c = new Cliente();
+    static Empleado e = new Empleado();
+
     public static void main(String[] args) {
         creacionMatrizProducto();
         creacionArrayFacturas();
@@ -81,16 +87,17 @@ public class MenuPrincipal {
                     "------Bienvenidos------\n"
                     + "1- Agregar producto\n"
                     + "2- Mostrar producto\n"
-                    + "3- Ver empleados\n"
-                    + "4- Agregar proveedor\n"
-                    + "5- Ver proveedores\n"
-                    + "6- Realizar pedido\n"
-                    + "7- Mostrar pedidos\n"
-                    + "8- Ver facturas\n"
-                    + "9- Productos vendidos del dia\n"
-                    + "10- Ver ganancias del dia\n"
-                    + "11- Sumar ganancias del dia\n"
-                    + "12- Salir"));
+                    + "3- Agregar empleado\n"
+                    + "4- Ver empleados\n"
+                    + "5- Agregar proveedor\n"
+                    + "6- Ver proveedores\n"
+                    + "7- Realizar pedido\n"
+                    + "8- Mostrar pedidos\n"
+                    + "9- Ver facturas\n"
+                    + "10- Productos vendidos del dia\n"
+                    + "11- Ver ganancias del dia\n"
+                    + "12- Sumar ganancias del dia\n"
+                    + "13- Salir"));
 
             switch (opcion) {
 
@@ -107,10 +114,11 @@ public class MenuPrincipal {
 
                 case 3:
 
+                    llenarMatrizEmpleado();
                     break;
 
                 case 4:
-                    mostrarFacturas();
+                    mostrarEmpleados();
 
                     break;
 
@@ -131,7 +139,7 @@ public class MenuPrincipal {
                     break;
 
                 case 9:
-
+                    mostrarFacturas();
                     break;
 
                 case 10:
@@ -141,8 +149,11 @@ public class MenuPrincipal {
                 case 11:
 
                     break;
-
                 case 12:
+
+                    break;
+
+                case 13:
                     parar = true;
                     break;
 
@@ -231,6 +242,24 @@ public class MenuPrincipal {
 
     }
 
+    // Recorre la lista de empleados y muestra cada uno.
+    public static void mostrarEmpleados() {
+        for (int i = 0; i < 2; i += 1) {
+            System.out.println("");
+            System.out.println("Empleado: " + i);
+            empleados[i].mostrarDatos();
+        }
+    }
+
+    // Recorre la lista de clientes y muestra cada uno.
+    public static void mostrarClientes() {
+        for (int i = 0; i < 2; i += 1) {
+            System.out.println("");
+            System.out.println("Cliente: " + i);
+            cliente[i].mostrarDatos();
+        }
+    }
+
     public static void creacionArrayFacturas() {
         for (int i = 0; i < facturas.length; i++) {
 
@@ -255,10 +284,26 @@ public class MenuPrincipal {
     public static void creacionArrayProveedores() {
 
         for (int i = 0; i < proveedores.length; i++) {
-          
-            pr = new Proveedor ();
-            
+
+            pr = new Proveedor();
+
         }
-        
+
+    }
+
+    public static void llenarMatrizCliente() {
+        for (int i = 0; i < 2; i += 1) {
+            Cliente cliente1 = new Cliente();
+            cliente1.tomarDatosCliente();
+            cliente[i] = cliente1;
+        }
+    }
+
+    public static void llenarMatrizEmpleado() {
+        for (int i = 0; i < 2; i += 1) {
+            Empleado empleado1 = new Empleado();
+            empleado1.tomarDatosEmpleado();
+            empleados[i] = empleado1;
+        }
     }
 }

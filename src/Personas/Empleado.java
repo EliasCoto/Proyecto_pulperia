@@ -94,14 +94,7 @@ public class Empleado {
         }
     }
 
-    // Recorre la lista de empleados y muestra cada uno.
-    public void mostrarEmpleados() {
-        for (int i = 0; i < 2; i += 1) {
-            System.out.println("");
-            System.out.println("Empleado: " + i);
-            empleados[i].mostrarDatos();
-        }
-    }
+
 
     // Método encargado de solicitar al usuario la información correspondiente para el ingreso de cada empleado.
     public void tomarDatosEmpleado() {
@@ -123,11 +116,5 @@ public class Empleado {
         JOptionPane.showMessageDialog(null, "Empleado agregado de manera correcta!");
     }
 
-    public void llenarMatriz() {
-        for (int i = 0; i < 2; i += 1) {
-            Empleado empleado1 = new Empleado();
-            empleado1.tomarDatosEmpleado();
-            empleados[i] = empleado1;
-        }
-    }
+   
 }
