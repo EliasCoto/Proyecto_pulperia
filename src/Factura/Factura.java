@@ -1,14 +1,11 @@
 package Factura;
 
-
 public class Factura {
 
     private int id;
-    //  private Cliente cliente;
     private String metodoPago;
     private String fecha;
     private double total;
-    //  private Empleado empleado;
 
     public Factura() {
     }
@@ -60,5 +57,5 @@ public class Factura {
                 + "Fecha: " + fecha + "\t"
                 + "Total: " + total + "\n";
     }
-   
+
 }

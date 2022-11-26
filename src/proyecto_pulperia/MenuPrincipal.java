@@ -2,6 +2,7 @@ package proyecto_pulperia;
 
 import Factura.Factura;
 import Productos.Producto;
+import Proveedor.Proveedor;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -12,11 +13,14 @@ public class MenuPrincipal {
     static String productos[][] = new String[20][6]; //Se usa una matriz para guardar los precios
     //Arreglo de objetos
     static Factura facturas[] = new Factura[2];
+    static Proveedor proveedores[] = new Proveedor[5];
 
     //inicializamos las clases
     static Producto p = new Producto();
     static Factura f = new Factura();
-
+    static Proveedor pr = new Proveedor(); 
+      
+    
     public static void main(String[] args) {
         creacionMatrizProducto();
         creacionArrayFacturas();
@@ -246,5 +250,15 @@ public class MenuPrincipal {
         }
         JTextArea ta = new JTextArea(null, s, 20, 50);
         JOptionPane.showMessageDialog(null, new JScrollPane(ta));
+    }
+
+    public static void creacionArrayProveedores() {
+
+        for (int i = 0; i < proveedores.length; i++) {
+          
+            pr = new Proveedor ();
+            
+        }
+        
     }
 }

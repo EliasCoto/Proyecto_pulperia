@@ -1,58 +1,36 @@
-
 package Cajas;
 
-import Personas.Cliente;
-import Productos.Producto;
-
-
 public class Cajas {
-    
-   
-    
-// private Cliente cliente;
-    private Producto producto;
-    private String metPago;
-    private int total;
 
-    public Cajas( Producto producto, String metPago, int total) {
-       
-        this.producto = producto;
-        this.metPago = metPago;
-        this.total = total;
+    private double totalDia;
+    private double totalSemana;
+
+    public Cajas() {
     }
 
-
-
-    public Producto getProducto() {
-        return producto;
+    public void CajasDia(double totalDia) {
+        this.totalDia = totalDia;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void CajasSemana(double totalSemana) {
+        this.totalSemana = totalSemana;
+
     }
 
-    public String getMetPago() {
-        return metPago;
+    public double getTotalDia() {
+        return totalDia;
     }
 
-    public void setMetPago(String metPago) {
-        this.metPago = metPago;
+    public void setTotalDia(double totalDia) {
+        this.totalDia = totalDia;
     }
 
-    public int getTotal() {
-        return total;
+    public double getTotalSemana() {
+        return totalSemana;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setTotalSemana(double totalSemana) {
+        this.totalSemana = totalSemana;
     }
-    
-    
-  
-    
-    
-    
-    
-    
-    
+
 }

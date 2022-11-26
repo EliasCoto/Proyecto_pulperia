@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author KARLA
+ *
  */
 /* Clase cliente: la misma se encarga de almacenar los datos correspondientes de un cliente. 
  * Métodos: mostrarDatos y tomarDatosCliente

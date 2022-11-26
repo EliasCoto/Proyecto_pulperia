@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author KARLA
+ *
  */
 /* Clase empleado: la misma se encarga de almacenar los datos de cada empleado. 
  * Métodos: mostrarDatos y tomarDatosEmpleado
