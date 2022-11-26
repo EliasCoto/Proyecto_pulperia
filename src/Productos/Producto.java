@@ -7,24 +7,27 @@ public class Producto {
     private String productos[][] = new String[2][6]; //se usa una matriz para guardar los productos
 
     //creacion de atributos
-    private String fechaCaducidad;
-    private String nombre;
     private String id;
+    private String nombre;
+    private String precio;
     private String stock;
     private String categoria;
-    private String precio;
+    private String fechaCaducidad;
 
     public Producto() {
     }
 
-    public Producto(String fechaCaducidad, String nombre, String id, String stock, String categoria, String precio) {
-        this.fechaCaducidad = fechaCaducidad;
-        this.nombre = nombre;
+    public Producto(String id, String nombre, String precio, String stock, String categoria, String fechaCaducidad) {
         this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
         this.stock = stock;
         this.categoria = categoria;
-        this.precio = precio;
+        this.fechaCaducidad = fechaCaducidad;
     }
+
+  
+    
 
     public String[][] getProductos() {
         return productos;

@@ -21,6 +21,23 @@ public class MenuPrincipal {
         creacionMatrizProducto();
         creacionArrayFacturas();
 
+        p = new Producto("1", "banano", "500", "20", "fruta", "No tiene");
+        agregarProductoPulperia(p);
+        p = new Producto("2", "chiky ", "2000", "100", "galleta", "22/03/2023");
+        agregarProductoPulperia(p);
+        p = new Producto("3", "coca", "1500", "200", "gaseosa", "20/12/2022");
+        agregarProductoPulperia(p);
+        p = new Producto("4", "bamboo", "1000", "100", "licores", "16/12/2022");
+        agregarProductoPulperia(p);
+        p = new Producto("5", "whisky", "47500", "20", "licores", "30/12/2022");
+        agregarProductoPulperia(p);
+        p = new Producto("6", "chirulitos", "900", "100", "snack", "16/12/2022");
+        agregarProductoPulperia(p);
+        p = new Producto("7", "tronaditas", "900", "20", "snack", "20/12/2022");
+        agregarProductoPulperia(p);
+        p = new Producto("8", "krunchy ", "1000", "100", "helado", "16/11/2022");
+        agregarProductoPulperia(p);
+
         boolean parar = false;
         do {
 
@@ -61,16 +78,21 @@ public class MenuPrincipal {
                     + "1- Agregar producto\n"
                     + "2- Mostrar producto\n"
                     + "3- Ver empleados\n"
-                    + "4-  Ver facturas\n"
-                    + "5- Productos vendidos del dia\n"
-                    + "6- Ver ganancias del dia\n"
-                    + "7- Sumar ganancias del dia\n"
-                    + "8- Salir"));
+                    + "4- Agregar proveedor\n"
+                    + "5- Ver proveedores\n"
+                    + "6- Realizar pedido\n"
+                    + "7- Mostrar pedidos\n"
+                    + "8- Ver facturas\n"
+                    + "9- Productos vendidos del dia\n"
+                    + "10- Ver ganancias del dia\n"
+                    + "11- Sumar ganancias del dia\n"
+                    + "12- Salir"));
 
             switch (opcion) {
 
                 case 1:
                     p.recogerDatos();
+                    agregarProductoPulperia(p);
 
                     break;
 
@@ -101,6 +123,22 @@ public class MenuPrincipal {
                     break;
 
                 case 8:
+
+                    break;
+
+                case 9:
+
+                    break;
+
+                case 10:
+
+                    break;
+
+                case 11:
+
+                    break;
+
+                case 12:
                     parar = true;
                     break;
 
